@@ -2,7 +2,9 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import SearchForm from './SearchForm';
 import NoImg from '/Users/scottmacleod/Desktop/ga/sandbox/projects/book-app/book-app/src/components/pics/NoImg.jpeg'
+import DropdownSubjects from './DropdownSubjects';
 // import { Route } from 'react-router-dom';
+// import './App.css'
 
 function RandBookSearch() {
     const [totItems, setTotItems] = useState(String(Math.floor(Math.random() * 40)))
@@ -62,6 +64,7 @@ function RandBookSearch() {
     
     return (
         <div id="container">
+            <DropdownSubjects />
             <div>
                 <button id="randButton" onClick={fetchBook}>Random Book!</button>
             </div> 

@@ -7,6 +7,7 @@ import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Musings from './components/Musings';
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
  

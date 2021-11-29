@@ -1,20 +1,32 @@
 
 import './App.css';
-import BookSearch from './components/BookSearch';
+import RandBookSearch from './components/RandBookSearch';
 import { Link, Route, Redirect } from 'react-router-dom';
+import { useState } from 'react';
 import SearchForm from './components/SearchForm';
+import Nav from './components/Nav';
+import Home from './components/Home';
+import Musings from './components/Musings';
+
 function App() {
+ 
   return (
-    <main className="App">
-      My Book App
-      <Link to="/randomBook"><h3>Random Book Generator</h3></Link>
-      <Route path="/randomBook" exact component={BookSearch}></Route>
-      <SearchForm
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        searchString={searchString} 
-      />
-    </main>
+    <div>
+      <header>
+        <a href="/">My Book App</a>
+      </header>
+      <div>
+        <Nav />
+      </div>
+      <main className="App">
+        {/* My Book App */}
+        
+        <Route path="/" exact component={Home}/>
+        <Route path="/randombook" exact component={RandBookSearch}></Route>
+        <Route path="/musings" exact component={Musings}></Route>
+        
+      </main>
+    </div>
   );
 }
 

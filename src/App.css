@@ -30,14 +30,25 @@
   }
 }
 
-/* img {
-  height:fit-content;
-  width: fit-content;
-  position: relative;
-} */
-
-/* #randButton-image {
-  flex-direction: column;
+nav {
   display: flex;
-  
-} */
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.container {
+  padding-bottom: 5px;
+}
+
+#randButton {
+  margin-bottom: 10px;
+}
+
+#musings-form {
+  margin: 5px;
+}
+
+#musings-input {
+  height: 250px;
+  width: 400px;
+}

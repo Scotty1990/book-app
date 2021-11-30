@@ -2,11 +2,11 @@
   text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
 
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,20 +15,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 nav {
   display: flex;
@@ -58,7 +58,7 @@ nav {
   display: inline-block;
 }
 
-.button {
+/* .button {
   padding: 0;
   width: 50px;
   border: 0;
@@ -67,9 +67,9 @@ nav {
   cursor: pointer;
   outline: 0;
   font-size: 20px;
-}
+} */
 
-.dropdown {
+/* .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
@@ -77,19 +77,19 @@ nav {
   z-index: 2;
   border: 1px solid rgba(0, 0, 0, 0.04);
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
-}
+} */
 
-ul {
+/* ul {
   list-style: none;
   padding: 0;
   margin: 0;
-}
+} */
 
-li {
+/* li {
   padding: 8px 12px;
-}
+} */
 
-li:hover {
+/* li:hover {
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
-}
+} */

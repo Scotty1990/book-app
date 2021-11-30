@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
+import Musings from './Musings';
 
 function MusingsComments(props) {
 //     const initialState = [{
-//         input: '',
+//         input: 'ssss',
 //     },
+//     {
+//         input: 'aaaa'
+//     }
 //    ];
 
-    const [musings, setMusings] = useState(props.initialState)
+//     const [musings, setMusings] = useState(initialState)
 
     
-    
+        // musings.map(muse => {
+
+        
         return ( 
-            <div>
-                {props.muse.input}
+            <p>
+                {props.muse}
                  
-            </div> 
+            </p> 
         );
-       
+    // })   
 }
 
 export default MusingsComments;

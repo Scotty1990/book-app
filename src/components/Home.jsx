@@ -48,20 +48,28 @@ function Home(props) {
     getBooks(searchString)
   }
 
+  function addBookToLog(addedBook) {
+    console.log(addedBook)
+  }
+
     return (
         <div>
-            Inside Home
-            <form onSubmit={handleSubmit}>
-              <input
-                placeholder="Search"
-                type="text"
-                onChange={handleChange}
-                // value={searchString} 
-              />
-            <button type="submit">Search</button>
-          </form>
+            <div className="search-bar">
+              <form onSubmit={handleSubmit}>
+                <input
+                  placeholder="Search"
+                  type="text"
+                  onChange={handleChange}
+                  // value={searchString} 
+                />
+                <button type="submit">Search</button>
+              </form>
+            </div>
           {books.map(book => ( 
-            <SearchResults book={book} />    
+            <SearchResults 
+              book={book}
+              addBookToLog={addBookToLog} 
+              />    
           ))}
         </div>
     );

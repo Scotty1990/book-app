@@ -93,3 +93,11 @@ li:hover {
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
 }
+
+.logButton {
+  margin: 5px;
+}
+
+.search-bar {
+  margin: 8px;
+}

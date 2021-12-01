@@ -69,6 +69,7 @@ function RandBookSearch() {
                 <button id="randButton" onClick={fetchBook}>Random Book!</button>
             </div> 
             <div id="img-space">
+                {/* Use Object.keys().includes here too */}
                 <img id="randBookResults" src={bookImage} alt={bookName} />
                 <div id="no-image">{bookName}</div>
             </div>  

@@ -89,7 +89,7 @@ nav {
   padding: 8px 12px;
 } */
 
-/* li:hover {
+li:hover {
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
-} */
+}

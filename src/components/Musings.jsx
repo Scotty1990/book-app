@@ -1,42 +1,22 @@
 import React, { useState } from 'react';
-import MusingsComments from './MusingsComments';
 
 function Musings() {
     const [input, setInput] = useState([])
     const [musings, setMusings] = useState([])
    
     function handleChange(event) {
-        // setMusings({...musings, input: event.target.value})
         setInput(input => [...input, event.target.value])
     }
 
     function handleSubmit(event) {
         event.preventDefault();
+        // Don't know why it has to be input.length - 2. I feel like - 1 should work
         setMusings(musings => [...musings, input[input.length - 2]])
-        
-    
+        // this is one entry behind, reminds me of that time when Tristan had the same problem
+        // either way it's working where it's supposed to
         console.log(musings)
     }
-    // const [musings, setMusings] = useState([])
-    // const [input, setInput] = useState([])
-    // let newMusing = ''
-    // function handleChange(event) {
-    //     // setMusings({...musings, input: event.target.value})
-    //     setMusings(musings => [...musings, event.target.value])
-    // }
-
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    //     setInput(input => [...input, musings[musings.length - 2]])
-        
-    //     newMusing = musings[musings.length - 2]
-    //     console.log(input)
-    // }
-
-    // function onClick(event) {
-    //     setMusings(musings => [...musings, event.target.value])
-    // }
-
+   
     return (
         <div>
             Welcome to the Musings section! Have something you liked about an author or a book? Jot it down! Something you dislike? Let the world know your thoughts!
@@ -51,9 +31,6 @@ function Musings() {
                 
                )
             })}
-                
-                {/* <p id="musingsId" display={inputDisplay ? "block" : "none"}>{musings.input}</p> */}
-                
         </div>
     );
 }

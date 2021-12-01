@@ -1,13 +1,14 @@
-import React from 'react';
 import SearchForm from './SearchForm';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import SearchResults from './SearchResults'
 
 function Home(props) {
-    const [searchString, setSearchString] = useState('')
-    const [books, setBooks] = useState()
+    const [searchString, setSearchString] = useState([])
+    const [bookName, setBookName] = useState([])
     const [bookImage, setBookImage] = useState()
     const [totItems, setTotItems] = useState(String(Math.floor(Math.random() * 40)))
-  
+    const [books, setBooks] = useState([])
+    const [key, setKey] = useState('')
     const searchOptions = {
       key: process.env.REACT_APP_BOOK_KEY,
       limit: 25,
@@ -16,27 +17,21 @@ function Home(props) {
       // endpoint: '/search',
     };
   
-    const url = `${searchOptions.api}${searchString}&startIndex=${totItems}&key=`
+    
   
-    const getBooks = () => {
+    useEffect(() => {
+      getBooks(searchString);
+    }, []);
+
+    const getBooks = (searchString) => {
+      const url = `${searchOptions.api}${searchString}&startIndex=${totItems}&key=`
       fetch(url)
       .then(res => res.json())
       .then(data => {
           console.log(data)
-          setBooks(data.items[0].volumeInfo.title)
-          try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
-          catch{setBookImage('')}
-          // try {
-          //     randBookResults.src = data.items[0].volumeInfo.imageLinks.thumbnail
-          //     console.log("try is working")
-          // }
-          // catch {
-          //     randBookResults.src = '/Users/scottmacleod/Desktop/GA/sandbox/projects/book-app/book-app/src/components/pics/no-image.jpg';
-          //     console.log("catch is working")
-          //     // document.querySelector("#no-image").innerText = "No image found"
-          // }
-          
-          // console.log((data.items[0].volumeInfo.averageRating))
+          setBookName(data.items[0].volumeInfo.title)
+          setBooks(data.items)
+          console.log((data.items[0].volumeInfo.averageRating))
           setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
       })
       .catch(err => console.log("something went wrong...", err))
@@ -49,17 +44,25 @@ function Home(props) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    getBooks()
+    console.log(searchString)
+    getBooks(searchString)
   }
 
     return (
         <div>
             Inside Home
-            <SearchForm
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          searchString={searchString} 
-        />
+            <form onSubmit={handleSubmit}>
+              <input
+                placeholder="Search"
+                type="text"
+                onChange={handleChange}
+                // value={searchString} 
+              />
+            <button type="submit">Search</button>
+          </form>
+          {books.map(book => ( 
+            <SearchResults book={book} />    
+          ))}
         </div>
     );
 }

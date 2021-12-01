@@ -7,13 +7,13 @@ import DropdownSubjects from './DropdownSubjects';
 // import './App.css'
 
 function RandBookSearch() {
-    const [totItems, setTotItems] = useState(String(Math.floor(Math.random() * 40)))
+    const [totItems, setTotItems] = useState(String(Math.floor(Math.random() * 100)))
     
     const searchOptions = {
         key: process.env.REACT_APP_BOOK_KEY,
         limit: 25,
         rating: 'G',
-        api: `https://www.googleapis.com/books/v1/volumes?q=subject:science+fiction&startIndex=${totItems}`,
+        api: `https://www.googleapis.com/books/v1/volumes?q=subject:fiction&startIndex=${totItems}`,
         endpoint: '/search',
       };
     
@@ -25,7 +25,7 @@ function RandBookSearch() {
     const randBookResults = document.querySelector("#randBookResults")
     let maxResults = `1`;
     const url = `${searchOptions.api}&key=`
-    // const urlEndpoint = `subject:sci+fi&startIndex=${totItems}&maxResults=${maxResults}&key=  `
+    
     const fetchBook = () => {
         fetch(url)
         .then(res => res.json())
@@ -69,7 +69,7 @@ function RandBookSearch() {
                 <button id="randButton" onClick={fetchBook}>Random Book!</button>
             </div> 
             <div id="img-space">
-                <img id="randBookResults" src={bookImage} alt='' />
+                <img id="randBookResults" src={bookImage} alt={bookName} />
                 <div id="no-image">{bookName}</div>
             </div>  
             

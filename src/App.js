@@ -2,11 +2,12 @@
 import './App.css';
 import RandBookSearch from './components/RandBookSearch';
 import { Link, Route, Redirect } from 'react-router-dom';
-import { useState } from 'react';
-import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Musings from './components/Musings';
+/* used npm install semantic-ui-react semantic-ui-css to get the menu
+   buttons working, then noticed that it made my webpage look nicer
+   this also makes the menu buttons for the subjects work */
 import 'semantic-ui-css/semantic.min.css'
 
 function App() {

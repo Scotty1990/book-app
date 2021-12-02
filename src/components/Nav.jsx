@@ -1,10 +1,18 @@
-import React from 'react';
 import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 
-
-function Nav(props) {
+function Nav() {
+    // const [readBooks, setReadBooks] = useState([])
+    // function addBookToLog(addedBook) {
+    //     // addedBookToLog()
+    //     setReadBooks(readBooks => [...readBooks, addedBook])
+    //     console.log(readBooks)
+    //   }
     return (
         <nav id="nav-bar">
+            {/* <Link to="/" addBookToLog={addBookToLog}>
+                <h3>Home</h3>
+            </Link> */}
             <Link to="/">
                 <h3>Home</h3>
             </Link>
@@ -14,6 +22,12 @@ function Nav(props) {
             <Link to="/musings">
                 <h3>Musings</h3>
             </Link>
+            <Link to="/booksiveread">
+                <h3>Books I've Read</h3>
+            </Link>
+            {/* <Link to="/booksiveread" readBooks={readBooks}>
+                <h3>Books I've Read</h3>
+            </Link> */}
         </nav>
     );
 }

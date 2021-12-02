@@ -37,7 +37,8 @@ nav {
 }
 
 .container {
-  padding-bottom: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
 }
 
 #randButton {
@@ -100,4 +101,8 @@ li:hover {
 
 .search-bar {
   margin: 8px;
+}
+
+.books {
+  height: 250px;
 }

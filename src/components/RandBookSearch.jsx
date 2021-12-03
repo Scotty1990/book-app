@@ -8,10 +8,7 @@ import DropdownSubjects from './DropdownSubjects';
 function RandBookSearch() {
     const searchOptions = {
         key: process.env.REACT_APP_BOOK_KEY,
-        limit: 25,
-        rating: 'G',
         api: `https://www.googleapis.com/books/v1/volumes?q=`,
-        endpoint: '/search',
       };
     
     const [totItems, setTotItems]               = useState(String(Math.floor(Math.random() * 100)))
@@ -22,23 +19,6 @@ function RandBookSearch() {
     
     const fetchBook = () => {
         setTotItems(String(Math.floor(Math.random() * 200)))
-        fetch(`${searchOptions.api}subject:comedy&startIndex=${totItems}&key=`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            setBook(data.items[0].volumeInfo)
-            setBookName(data.items[0].volumeInfo.title)
-            setBookDescription(data.items[0].volumeInfo.description)
-            setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)
-            setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
-        })
-        .catch(err => {
-            console.log("something went wrong...", err)
-        })
-    }
-
-    const fetchBookFiction = () => {
-        setTotItems(String(Math.floor(Math.random() * 200)))
         fetch(`${searchOptions.api}subject:fiction&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
@@ -46,7 +26,30 @@ function RandBookSearch() {
             setBook(data.items[0].volumeInfo)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
-            setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
+            setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+    }
+    
+    useEffect(() => {
+      fetchBook();
+    }, []);
+
+    const fetchBookScience = () => {
+        setTotItems(String(Math.floor(Math.random() * 200)))
+        fetch(`${searchOptions.api}subject:science&startIndex=${totItems}&key=`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setBook(data.items[0].volumeInfo)
+            setBookName(data.items[0].volumeInfo.title)
+            setBookDescription(data.items[0].volumeInfo.description)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
             setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
         })
         .catch(err => {
@@ -63,7 +66,8 @@ function RandBookSearch() {
             setBook(data.items[0].volumeInfo)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
-            setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
             setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
         })
         .catch(err => {
@@ -79,7 +83,8 @@ function RandBookSearch() {
             console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
-            setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
             setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
         })
         .catch(err => {
@@ -95,7 +100,8 @@ function RandBookSearch() {
             console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
-            setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
             setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
         })
         .catch(err => {
@@ -106,7 +112,7 @@ function RandBookSearch() {
     return (
         <div id="container">
             <DropdownSubjects 
-                fetchBookFiction={fetchBookFiction}
+                fetchBookFiction={fetchBookScience}
                 fetchBookFantasy={fetchBookFantasy}
                 fetchBookHistoricalFiction={fetchBookHistoricalFiction}
                 fetchBookMilitaryFiction={fetchBookMilitaryFiction}

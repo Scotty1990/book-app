@@ -2,37 +2,40 @@ import React, { useEffect, useState } from 'react';
 import SearchResults from './SearchResults'
 
 function Home() {
-    const [readBooks, setReadBooks] = useState([])
+    const [readBooks, setReadBooks] = useState(["Books I've read: "])
     const [searchString, setSearchString] = useState([])
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
+    const [searchParams, setSearchParams] = useState({search: '', index: 0})
+    // let searchStringHistory = []
+    // let startIndex = 0
+    // const [searchStringHistory, setSearchStringHistory] = useState([])
     
     const searchOptions = {
       key: process.env.REACT_APP_BOOK_KEY,
-      limit: 25,
-      // rating: 'G',
       api: `https://www.googleapis.com/books/v1/volumes?q=`,
-      // endpoint: '/search',
     };
-  
-    // useEffect(() => {
-    //   getBooks(searchString);
-    // }, []);
 
     // const url = `${searchOptions.api}${searchString}&startIndex=${totItems}&key=`
-
-    const getBooks = (searchString) => {
+ 
+    const getBooks = (searchString, startIndex = 0) => {
       const url = `${searchOptions.api}${searchString}&startIndex=${startIndex}&maxResults=20&key=`
       console.log(url)
       fetch(url)
-      .then(res => res.json())
+      .then(res => {
+        if(res.ok)
+        return res.json()})
       .then(data => {
           console.log(data)
           setBooks(data.items)
-          console.log((data.items[0].volumeInfo.averageRating))
+          // console.log((data.items[0].volumeInfo.averageRating))
       })
       .catch(err => console.log("something went wrong...", err))
   }
+
+  useEffect(() => {
+    getBooks(searchParams.search, searchParams.index)
+  }, [searchParams])
       
   function handleChange(event) {
     setSearchString(event.target.value)
@@ -43,50 +46,62 @@ function Home() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    setStartIndex(0)
-    getBooks(searchString)
+    // searchStringHistory.push(searchString)
+    // console.log(searchStringHistory)
+    setStartIndex(index => index * 0)
+    setSearchParams((state) => ({...state, search: searchString, index: startIndex * 0}))
+    // getBooks(searchString, startIndex)
+    // setSearchStringHistory(...searchStringHistory, searchString)
+    // console.log(searchStringHistory)
+    // setSearchString('')
   }
 
   function addBookToLog(addedBook) {
-    setReadBooks(readBooks => [...readBooks, addedBook])
-    console.log(readBooks)
+    setReadBooks(readBooks => [...readBooks, addedBook + ', ' ])
   }
  
   function nextResults() {
-    setStartIndex(startIndex + 20)
-    console.log(startIndex)
-    getBooks(searchString)
+    setStartIndex(index => index + 20)
+    setSearchParams((state) => ({...state, search: searchString, index: startIndex + 20}))
+    // console.log(searchStringHistory)
+    // console.log(searchStringHistory[searchStringHistory.length - 1])
+    // console.log(searchStringHistory)
+    // setSearchString(searchStringHistory[searchStringHistory.length - 1])
+    // getBooks(searchStringHistory[searchStringHistory.length - 2], startIndex)
   }
 
   function previousResults() {
-    setStartIndex(startIndex - 20)
-    getBooks(searchString)
+    setStartIndex(index => index - 20)
+    setSearchParams((state) => ({...state, search: searchString, index: startIndex - 20}))
   }
 
     return (
         <div>
-            {/* <p>{readBooks}</p> */}
-            <div className="search-bar">
-              <form onSubmit={handleSubmit}>
-                <input
-                  placeholder="Search"
-                  type="text"
-                  onChange={handleChange}
-                />
-                <button type="submit">Search</button>
-              </form>
-            </div>
-            {/* Putting the container class outside the map made it work better */}
-            <div className="container">
-              {books.map(book => ( 
-                <SearchResults 
-                  book={book}
-                  addBookToLog={addBookToLog} 
-                />    
-              ))}
-            </div>
-            <button onClick={previousResults} visibility={(startIndex === 0) ? "hidden" : "block"}>Previous</button>
-            <button onClick={nextResults}>Next</button>
+          <div id="read-books">
+            <p>{readBooks}</p>
+          </div>
+          <div className="search-bar">
+            <form onSubmit={handleSubmit}>
+              <input
+                placeholder="Search"
+                type="text"
+                onChange={handleChange}
+                value={searchString}
+              />
+              <button type="submit">Search</button>
+            </form>
+          </div>
+          {/* Putting the container class outside the map made it work better */}
+          <div className="container">
+            {books.map(book => ( 
+              <SearchResults 
+                book={book}
+                addBookToLog={addBookToLog} 
+              />    
+            ))}
+          </div>
+          <button onClick={previousResults} display={(startIndex === 0) ? "hidden" : "block"}>Previous</button>
+          <button onClick={nextResults}>Next</button>
         </div>
     );
 }

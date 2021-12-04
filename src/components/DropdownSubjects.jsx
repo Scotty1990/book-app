@@ -50,37 +50,37 @@ function DropdownSubjects({fetchBookScience, fetchBookFiction, fetchBookFantasy,
       return (
         <div className="menu">
           <Menu className="menuItems">
-            <Menu.Item className="menuItems" onClick={onClickFetchBookFiction} >
+            <Menu.Item onClick={onClickFetchBookFiction} >
               Fiction
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookFantasy} >
+            <Menu.Item onClick={onClickFetchBookFantasy} >
               Fantasy
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookScienceFiction} >
+            <Menu.Item onClick={onClickFetchBookScienceFiction} >
               Science Fiction
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookMystery} >
+            <Menu.Item onClick={onClickFetchBookMystery} >
               Mystery
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookHistoricalFiction} >
+            <Menu.Item onClick={onClickFetchBookHistoricalFiction} >
               Historial Fiction
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookMilitaryFiction} >
+            <Menu.Item onClick={onClickFetchBookMilitaryFiction} >
               Military Fiction
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookHorror} >
+            <Menu.Item onClick={onClickFetchBookHorror} >
               Horror
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookHumor} >
+            <Menu.Item onClick={onClickFetchBookHumor} >
               Humor
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookScience} >
+            <Menu.Item onClick={onClickFetchBookScience} >
               Science
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookMath} >
+            <Menu.Item onClick={onClickFetchBookMath} >
               Math
             </Menu.Item>
-            <Menu.Item className="menuItems" onClick={onClickFetchBookPoetry} >
+            <Menu.Item onClick={onClickFetchBookPoetry} >
               Poetry
             </Menu.Item>
           </Menu>

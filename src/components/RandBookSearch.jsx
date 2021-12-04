@@ -203,19 +203,21 @@ function RandBookSearch() {
     
     return (
         <div id="container">
-            <DropdownSubjects 
-                fetchBookFiction={fetchBookFiction}
-                fetchBookFantasy={fetchBookFantasy}
-                fetchBookScienceFiction={fetchBookScienceFiction}
-                fetchBookHistoricalFiction={fetchBookHistoricalFiction}
-                fetchBookMilitaryFiction={fetchBookMilitaryFiction}
-                fetchBookScience={fetchBookScience}
-                fetchBookPoetry={fetchBookPoetry}
-                fetchBookMath={fetchBookMath}
-                fetchBookShortStory={fetchBookHumor}
-                fetchBookHorror={fetchBookHorror}
-                fetchBookMystery={fetchBookMystery}
-            />
+            <div id="dropdownMenu">
+                <DropdownSubjects 
+                    fetchBookFiction={fetchBookFiction}
+                    fetchBookFantasy={fetchBookFantasy}
+                    fetchBookScienceFiction={fetchBookScienceFiction}
+                    fetchBookHistoricalFiction={fetchBookHistoricalFiction}
+                    fetchBookMilitaryFiction={fetchBookMilitaryFiction}
+                    fetchBookScience={fetchBookScience}
+                    fetchBookPoetry={fetchBookPoetry}
+                    fetchBookMath={fetchBookMath}
+                    fetchBookShortStory={fetchBookHumor}
+                    fetchBookHorror={fetchBookHorror}
+                    fetchBookMystery={fetchBookMystery}
+                />
+            </div>
             <div id="img-space">
                 {/* Use Object.keys().includes here too */}
                 <img id="randBookResults" src={bookImage} alt={bookName} />

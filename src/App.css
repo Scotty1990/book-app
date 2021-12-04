@@ -68,13 +68,22 @@ li:hover {
   font-size: 16px;
 }
 
-.menu {
+a {
+  color: #4183c4;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  text-decoration: none;
+}
+
+ul {
+  align-items: left;
+}
+
+#dropdownMenu {
   margin-bottom: 20px;
   margin: auto;
 }
 
 body {
-  background-color: blanchedalmond;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -85,7 +94,6 @@ body {
   font-size: 14px;
   line-height: 1.4285em;
   color: rgba(0,0,0,.87);
-  font-smoothing: antialiased;
 }
 
 #bookDescription {

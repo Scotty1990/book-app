@@ -49,7 +49,7 @@ function DropdownSubjects({fetchBookScience, fetchBookFiction, fetchBookFantasy,
   
       return (
         <div className="menu">
-          <Menu>
+          <Menu className="menuItems">
             <Menu.Item className="menuItems" onClick={onClickFetchBookFiction} >
               Fiction
             </Menu.Item>

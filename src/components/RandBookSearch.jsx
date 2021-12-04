@@ -62,7 +62,22 @@ function RandBookSearch() {
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
             catch{setBookImage(NoImg)}
-            setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+    }
+
+    const fetchBookScienceFiction = () => {
+        setTotItems(String(Math.floor(Math.random() * 200)))
+        fetch(`${searchOptions.api}genre:science+fiction&startIndex=${totItems}&key=`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setBookName(data.items[0].volumeInfo.title)
+            setBookDescription(data.items[0].volumeInfo.description)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -79,7 +94,6 @@ function RandBookSearch() {
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
             catch{setBookImage(NoImg)}
-            setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -96,7 +110,91 @@ function RandBookSearch() {
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
             catch{setBookImage(NoImg)}
-            setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+    }
+
+
+    const fetchBookPoetry = () => {
+        setTotItems(String(Math.floor(Math.random() * 200)))
+        fetch(`${searchOptions.api}subject:poetry&startIndex=${totItems}&key=`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setBookName(data.items[0].volumeInfo.title)
+            setBookDescription(data.items[0].volumeInfo.description)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+    }
+
+
+    const fetchBookMath = () => {
+        setTotItems(String(Math.floor(Math.random() * 18)))
+        fetch(`${searchOptions.api}subject:math&startIndex=${totItems}&key=`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setBookName(data.items[0].volumeInfo.title)
+            setBookDescription(data.items[0].volumeInfo.description)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+    }
+
+
+    const fetchBookHumor = () => {
+        setTotItems(String(Math.floor(Math.random() * 200)))
+        fetch(`${searchOptions.api}subject:humor&startIndex=${totItems}&key=`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setBookName(data.items[0].volumeInfo.title)
+            setBookDescription(data.items[0].volumeInfo.description)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+    }
+
+
+    const fetchBookHorror = () => {
+        setTotItems(String(Math.floor(Math.random() * 200)))
+        fetch(`${searchOptions.api}subject:horror&startIndex=${totItems}&key=`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setBookName(data.items[0].volumeInfo.title)
+            setBookDescription(data.items[0].volumeInfo.description)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
+        })
+        .catch(err => {
+            console.log("something went wrong...", err)
+        })
+    }
+
+
+    const fetchBookMystery = () => {
+        setTotItems(String(Math.floor(Math.random() * 200)))
+        fetch(`${searchOptions.api}subject:mystery&startIndex=${totItems}&key=`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setBookName(data.items[0].volumeInfo.title)
+            setBookDescription(data.items[0].volumeInfo.description)
+            try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
+            catch{setBookImage(NoImg)}
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -106,11 +204,17 @@ function RandBookSearch() {
     return (
         <div id="container">
             <DropdownSubjects 
-                fetchBookScience={fetchBookScience}
+                fetchBookFiction={fetchBookFiction}
                 fetchBookFantasy={fetchBookFantasy}
+                fetchBookScienceFiction={fetchBookScienceFiction}
                 fetchBookHistoricalFiction={fetchBookHistoricalFiction}
                 fetchBookMilitaryFiction={fetchBookMilitaryFiction}
-                fetchBookFiction={fetchBookFiction}
+                fetchBookScience={fetchBookScience}
+                fetchBookPoetry={fetchBookPoetry}
+                fetchBookMath={fetchBookMath}
+                fetchBookShortStory={fetchBookHumor}
+                fetchBookHorror={fetchBookHorror}
+                fetchBookMystery={fetchBookMystery}
             />
             <div id="img-space">
                 {/* Use Object.keys().includes here too */}
@@ -118,7 +222,7 @@ function RandBookSearch() {
                 <div id="bookName"><h1>{bookName}</h1></div>
             </div>  
             
-            <p id="title">{bookDescription}</p>
+            <p id="bookDescription">{bookDescription}</p>
             {/* <SearchForm /> */}
         </div>  
             

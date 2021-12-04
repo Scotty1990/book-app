@@ -35,13 +35,15 @@ function Home() {
   function handleChange(event) {
     setSearchString(event.target.value)
     // had to add this so I could search for titles with spaces in the name
-    if (searchString.includes(" "))
-      setSearchString(searchString.replace(" ", "+"))
+    // if (searchString.includes(" "))
+    //   setSearchString(searchString.replace(" ", "+"))
   } 
 
   function handleSubmit(event) {
     event.preventDefault()
     setStartIndex(index => index * 0)
+    if (searchString.includes(" "))
+      setSearchString(searchString.replace(" ", "+"))
     setSearchParams((state) => ({...state, search: searchString, index: startIndex * 0}))
     setLastSearch(...lastSearch, searchString)
     setSearchString('')

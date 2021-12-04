@@ -80,7 +80,7 @@ a {
   margin: auto;
 }
 
-div.ui.menu {
+div.ui.menu:after {
   margin: auto;
 }
 

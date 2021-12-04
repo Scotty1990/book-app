@@ -80,9 +80,13 @@ a {
   margin: auto;
 }
 
-.menuItems {
-  margin: fill;
+div.ui.menu {
+  margin: auto;
 }
+
+/* .menuItems {
+  margin: fill;
+} */
 
 #img-space {
   margin-top: 20px;

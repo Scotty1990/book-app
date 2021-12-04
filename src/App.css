@@ -78,7 +78,7 @@ ul {
   align-items: left;
 }
 
-#dropdownMenu {
+div.menu {
   margin-bottom: 20px;
   margin: auto;
 }
@@ -97,7 +97,7 @@ body {
 }
 
 #bookDescription {
-  margin: 0 400px 0 400px;
+  margin: 0 300px 0 300px;
   min-width: 100px;
 }
 

@@ -81,7 +81,7 @@ a {
 }
 
 .menuItems {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 #img-space {

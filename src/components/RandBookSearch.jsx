@@ -11,24 +11,21 @@ function RandBookSearch() {
         api: `https://www.googleapis.com/books/v1/volumes?q=`,
       };
     
-    const [totItems, setTotItems]               = useState(String(Math.floor(Math.random() * 100)))
-    const [book, setBook]                       = useState()
+    const [totItems, setTotItems]               = useState(String(Math.floor(Math.random() * 200)))
     const [bookName, setBookName]               = useState()
     const [bookImage, setBookImage]             = useState()
     const [bookDescription, setBookDescription] = useState()
     
-    const fetchBook = () => {
+    const fetchBookFiction = () => {
         setTotItems(String(Math.floor(Math.random() * 200)))
         fetch(`${searchOptions.api}subject:fiction&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            setBook(data.items[0].volumeInfo)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
             catch{setBookImage(NoImg)}
-            setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -36,7 +33,7 @@ function RandBookSearch() {
     }
     
     useEffect(() => {
-      fetchBook();
+      fetchBookFiction();
     }, []);
 
     const fetchBookScience = () => {
@@ -45,12 +42,10 @@ function RandBookSearch() {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            setBook(data.items[0].volumeInfo)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
             catch{setBookImage(NoImg)}
-            setTotItems(String((Math.floor(Math.random() * parseInt(data.totalItems)))))
         })
         .catch(err => {
             console.log("something went wrong...", err)
@@ -63,7 +58,6 @@ function RandBookSearch() {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            setBook(data.items[0].volumeInfo)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -112,14 +106,12 @@ function RandBookSearch() {
     return (
         <div id="container">
             <DropdownSubjects 
-                fetchBookFiction={fetchBookScience}
+                fetchBookScience={fetchBookScience}
                 fetchBookFantasy={fetchBookFantasy}
                 fetchBookHistoricalFiction={fetchBookHistoricalFiction}
                 fetchBookMilitaryFiction={fetchBookMilitaryFiction}
+                fetchBookFiction={fetchBookFiction}
             />
-            <div>
-                <button id="randButton" onClick={fetchBook}>Random Book!</button>
-            </div> 
             <div id="img-space">
                 {/* Use Object.keys().includes here too */}
                 <img id="randBookResults" src={bookImage} alt={bookName} />

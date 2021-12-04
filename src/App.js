@@ -1,7 +1,7 @@
 
 import './App.css';
 import RandBookSearch from './components/RandBookSearch';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Musings from './components/Musings';

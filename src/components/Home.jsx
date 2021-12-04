@@ -7,17 +7,13 @@ function Home() {
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
     const [searchParams, setSearchParams] = useState({search: '', index: 0})
-    // let searchStringHistory = []
-    // let startIndex = 0
-    // const [searchStringHistory, setSearchStringHistory] = useState([])
+    const [lastSearch, setLastSearch] = useState([]) 
     
     const searchOptions = {
       key: process.env.REACT_APP_BOOK_KEY,
       api: `https://www.googleapis.com/books/v1/volumes?q=`,
     };
 
-    // const url = `${searchOptions.api}${searchString}&startIndex=${totItems}&key=`
- 
     const getBooks = (searchString, startIndex = 0) => {
       const url = `${searchOptions.api}${searchString}&startIndex=${startIndex}&maxResults=20&key=`
       console.log(url)
@@ -28,7 +24,6 @@ function Home() {
       .then(data => {
           console.log(data)
           setBooks(data.items)
-          // console.log((data.items[0].volumeInfo.averageRating))
       })
       .catch(err => console.log("something went wrong...", err))
   }
@@ -46,14 +41,10 @@ function Home() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    // searchStringHistory.push(searchString)
-    // console.log(searchStringHistory)
     setStartIndex(index => index * 0)
     setSearchParams((state) => ({...state, search: searchString, index: startIndex * 0}))
-    // getBooks(searchString, startIndex)
-    // setSearchStringHistory(...searchStringHistory, searchString)
-    // console.log(searchStringHistory)
-    // setSearchString('')
+    setLastSearch(...lastSearch, searchString)
+    setSearchString('')
   }
 
   function addBookToLog(addedBook) {
@@ -62,21 +53,17 @@ function Home() {
  
   function nextResults() {
     setStartIndex(index => index + 20)
-    setSearchParams((state) => ({...state, search: searchString, index: startIndex + 20}))
-    // console.log(searchStringHistory)
-    // console.log(searchStringHistory[searchStringHistory.length - 1])
-    // console.log(searchStringHistory)
-    // setSearchString(searchStringHistory[searchStringHistory.length - 1])
-    // getBooks(searchStringHistory[searchStringHistory.length - 2], startIndex)
+    setSearchParams((state) => ({...state, search: lastSearch, index: startIndex + 20}))
+    console.log(lastSearch)
   }
 
   function previousResults() {
     setStartIndex(index => index - 20)
-    setSearchParams((state) => ({...state, search: searchString, index: startIndex - 20}))
+    setSearchParams((state) => ({...state, search: lastSearch, index: startIndex - 20}))
   }
 
     return (
-        <div>
+        <div id="homeDiv">
           <div id="read-books">
             <p>{readBooks}</p>
           </div>

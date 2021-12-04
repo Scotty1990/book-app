@@ -9,7 +9,7 @@ function Nav() {
     //     console.log(readBooks)
     //   }
     return (
-        <nav id="nav-bar">
+        <nav id="navBar">
             {/* <Link to="/" addBookToLog={addBookToLog}>
                 <h3>Home</h3>
             </Link> */}

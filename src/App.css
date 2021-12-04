@@ -3,9 +3,15 @@
 }
 
 nav {
+  
+}
+
+#navBar {
   display: flex;
   justify-content: space-between;
-  margin: 15px;
+  margin-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(1);
 }
 
 .container {
@@ -74,13 +80,10 @@ a {
   text-decoration: none;
 }
 
-ul {
-  align-items: left;
-}
-
-div.menu {
-  margin-bottom: 20px;
+.menu {
+  margin-bottom: 200px;
   margin: auto;
+  
 }
 
 body {

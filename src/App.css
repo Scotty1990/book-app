@@ -78,6 +78,7 @@ a {
 
 .menu {
   margin: auto;
+  width: 600px;
 }
 
 div.ui.menu:after {

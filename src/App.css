@@ -18,11 +18,24 @@
 
 #musings-form {
   margin: 5px;
+  min-width: 530px;
+  margin: 0 450px 0 450px;
 }
 
-#musings-input {
-  height: 250px;
-  width: 400px;
+
+.musings-container {
+  margin: 10px;
+}
+
+.individual-musings {
+  min-width: 700px;
+}
+
+#musings-intro {
+  font-size: 15px;
+  min-width: 530px;
+  margin: 0 425px 15px 425px;
+  width: auto;
 }
 
 .container-subjects {
@@ -51,17 +64,6 @@ li:hover {
   height: 50px;
 }
 
-.musings-container {
-  margin: 10px;
-}
-
-#musings-intro {
-  font-size: 15px;
-  min-width: 100px;
-  margin: 0 350px 15px 350px;
-
-}
-
 #book-title {
   font-size: 16px;
 }
@@ -85,10 +87,6 @@ div.ui.menu:after {
   margin: auto;
 }
 
-/* .menuItems {
-  margin: fill;
-} */
-
 #img-space {
   margin-top: 20px;
 }
@@ -104,9 +102,9 @@ body {
   color: rgba(0,0,0,.87);
 }
 
-#bookDescription {
+.bookDescription {
   margin: 0 300px 0 300px;
-  min-width: 100px;
+  min-width: 200px;
 }
 
 .bIRTitle {

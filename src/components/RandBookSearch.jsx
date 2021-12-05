@@ -2,8 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import NoImg from './pics/NoImg.jpeg'
 import DropdownSubjects from './DropdownSubjects';
-// import { Route } from 'react-router-dom';
-// import './App.css'
 
 function RandBookSearch() {
     const searchOptions = {
@@ -184,7 +182,6 @@ function RandBookSearch() {
         })
     }
 
-
     const fetchBookMystery = () => {
         setTotItems(String(Math.floor(Math.random() * 200)))
         fetch(`${searchOptions.api}subject:mystery&startIndex=${totItems}&key=`)
@@ -213,19 +210,17 @@ function RandBookSearch() {
                     fetchBookScience={fetchBookScience}
                     fetchBookPoetry={fetchBookPoetry}
                     fetchBookMath={fetchBookMath}
-                    fetchBookShortStory={fetchBookHumor}
+                    fetchBookHumor={fetchBookHumor}
                     fetchBookHorror={fetchBookHorror}
                     fetchBookMystery={fetchBookMystery}
                 />
             </div>
             <div id="img-space">
-                {/* Use Object.keys().includes here too */}
+                {/* Object.keys().includes didn't work here */}
                 <img id="randBookResults" src={bookImage} alt={bookName} />
                 <div id="bookName"><h1>{bookName}</h1></div>
             </div>  
-            
-            <p id="bookDescription">{bookDescription}</p>
-            {/* <SearchForm /> */}
+            <p className="bookDescription">{bookDescription}</p>
         </div>  
             
         

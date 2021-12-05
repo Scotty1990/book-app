@@ -33,7 +33,7 @@ function Musings() {
             {musings.map((muse) => {
                return (
                 <div className="musings-container">
-                    <p>{muse}</p>
+                    <p className="individual-musings">{muse}</p>
                     <Likes />
                 </div>
                )

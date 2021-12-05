@@ -14,7 +14,7 @@ In the project I created an app that will allow users to search for books they l
 - Adding to the arrays using ```setState()```
 
 ### Enjoy
-![img](/public/src/components/pics/Home.png)
-![img](/public/src/components/pics/RandomBookGeneratorSample.png)
-![img](/public/src/components/pics/MusingsSection.png)
-![img](/public/src/components/pics/BooksIveReadSection.png)
+![img](./src/components/pics/Home.png)
+![img](./src/components/pics/RandomBookGeneratorSample.png)
+![img](./src/components/pics/MusingsSection.png)
+![img](./src/components/pics/BooksIveReadSection.png)

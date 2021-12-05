@@ -19,7 +19,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:fiction&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -29,7 +28,7 @@ function RandBookSearch() {
             console.log("something went wrong...", err)
         })
     }
-    
+
     useEffect(() => {
       fetchBookFiction();
     }, []);
@@ -39,7 +38,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:science&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -55,7 +53,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:fantasy&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -71,7 +68,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}genre:science+fiction&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -87,7 +83,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:historical+fiction&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -103,7 +98,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:military+fiction&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -120,7 +114,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:poetry&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -137,7 +130,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:math&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -154,7 +146,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:humor&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -171,7 +162,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:horror&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
@@ -187,7 +177,6 @@ function RandBookSearch() {
         fetch(`${searchOptions.api}subject:mystery&startIndex=${totItems}&key=`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             setBookName(data.items[0].volumeInfo.title)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}

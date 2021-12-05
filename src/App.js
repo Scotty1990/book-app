@@ -22,8 +22,6 @@ function App() {
         <Nav />
       </div>
       <main className="App">
-        {/* My Book App */}
-        
         <Route path="/" exact component={Home}/>
         <Route path="/randombook" exact component={RandBookSearch}></Route>
         <Route path="/musings" exact component={Musings}></Route>

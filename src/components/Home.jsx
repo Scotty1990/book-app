@@ -22,7 +22,6 @@ function Home() {
         if(res.ok)
         return res.json()})
       .then(data => {
-          console.log(data)
           setBooks(data.items)
       })
       .catch(err => console.log("something went wrong...", err))
@@ -34,14 +33,12 @@ function Home() {
       
   function handleChange(event) {
     setSearchString(event.target.value)
-    // had to add this so I could search for titles with spaces in the name
-    // if (searchString.includes(" "))
-    //   setSearchString(searchString.replace(" ", "+"))
   } 
 
   function handleSubmit(event) {
     event.preventDefault()
     setStartIndex(index => index * 0)
+    // Had to add this so I could search for stuff with spaces in the name
     if (searchString.includes(" "))
       setSearchString(searchString.replace(" ", "+"))
     setSearchParams((state) => ({...state, search: searchString, index: startIndex * 0}))
@@ -56,7 +53,6 @@ function Home() {
   function nextResults() {
     setStartIndex(index => index + 20)
     setSearchParams((state) => ({...state, search: lastSearch, index: startIndex + 20}))
-    console.log(lastSearch)
   }
 
   function previousResults() {

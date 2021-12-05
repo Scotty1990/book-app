@@ -10,7 +10,7 @@ const SearchResults = ({ book, addBookToLog }) => {
 
     return (
         <div>
-        {/* Object.keys(book.volumeInfo.imageLinks) Object.keys(bookInfo).includes(thumbnail) ? */}
+        {/* Patricio showed me this */}
             <div>
                 <img src={Object.keys(book.volumeInfo).includes(`imageLinks`) ? book.volumeInfo.imageLinks.thumbnail : NoImg} alt={book.volumeInfo.title}/>
             </div>

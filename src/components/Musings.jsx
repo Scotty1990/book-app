@@ -29,7 +29,6 @@ function Musings() {
                 <textarea cols="50" rows="10" onChange={handleChange} value={text}></textarea>        
                 <button onClick={handleChange}>submit</button>  
             </form>
-           
             {musings.map((muse) => {
                return (
                 <div className="musings-container">

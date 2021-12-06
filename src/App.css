@@ -121,8 +121,9 @@ body {
 }
 
 .bookDescription {
-  margin: 0 300px 0 300px;
-  min-width: 200px;
+  margin: auto;
+  /* margin: 0 300px 0 300px; */
+  /* min-width: 200px; */
 }
 
 .bIRTitle {

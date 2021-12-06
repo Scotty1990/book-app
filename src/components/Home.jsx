@@ -22,7 +22,7 @@ function Home() {
         if(res.ok)
         return res.json()})
       .then(data => {
-          setBooks(data.items)
+        setBooks(data.items)
       })
       .catch(err => console.log("something went wrong...", err))
   }

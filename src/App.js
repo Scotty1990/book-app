@@ -10,7 +10,7 @@ import BooksIveRead from './components/BooksIveRead';
    buttons working, then noticed that it made my webpage look nicer
    this also makes the menu buttons for the subjects work */
 import 'semantic-ui-css/semantic.min.css'
-import HomeAndBIRContainer from './components/HomeAndBIRContainer';
+import WantToRead from './components/WantToRead';
 
 function App() {
  
@@ -27,7 +27,8 @@ function App() {
           <BooksIveRead />
       </div> */}
       <main className="App">
-        
+        <BooksIveRead />
+        <WantToRead />
         <Route path="/" exact component={Home}/>
         <Route path="/randombook" exact component={RandBookSearch}></Route>
         <Route path="/musings" exact component={Musings}></Route>

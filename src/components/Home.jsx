@@ -72,9 +72,9 @@ function Home() {
   }
 
     return (
-        <div>
+        <div id="homeDiv">
           <div>
-            <BooksIveRead readBooks={readBooks}/>
+            {/* <BooksIveRead readBooks={readBooks}/> */}
           </div> 
           {/* <div id="read-books">
             <p>{readBooks}</p>

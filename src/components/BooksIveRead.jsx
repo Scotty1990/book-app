@@ -7,49 +7,51 @@ import Mistborn from './pics/Mistborn.jpeg'
 import Likes from './Likes'
 
 function BooksIveRead({ readBooks }) {
-    // const booksObj = [{
-    //     title: 'Foundation',
-    //     author: 'Isaac Asimov',
-    //     imageSrc: Foundation,
-    // },
-    // {
-    //     title: 'Hyperion',
-    //     author: 'Dan Simmons',
-    //     imageSrc: Hyperion,
-    // },
-    // {
-    //     title: 'Slaughterhouse 5',
-    //     author: 'Kurt Vonnegut',
-    //     imageSrc: Slaughterhouse5,
-    // },
-    // {
-    //     title: 'The Library at Mount Char',
-    //     author: 'Scott Hawkins',
-    //     imageSrc: LibraryAtMountChar,
-    // },
-    // {
-    //     title: 'Mistborn',
-    //     author: 'Brandon Sanderson',
-    //     imageSrc: Mistborn,
-    // },]
+    const booksObj = [{
+        title: 'Foundation',
+        author: 'Isaac Asimov',
+        imageSrc: Foundation,
+    },
+    {
+        title: 'Hyperion',
+        author: 'Dan Simmons',
+        imageSrc: Hyperion,
+    },
+    {
+        title: 'Slaughterhouse 5',
+        author: 'Kurt Vonnegut',
+        imageSrc: Slaughterhouse5,
+    },
+    {
+        title: 'The Library at Mount Char',
+        author: 'Scott Hawkins',
+        imageSrc: LibraryAtMountChar,
+    },
+    {
+        title: 'Mistborn',
+        author: 'Brandon Sanderson',
+        imageSrc: Mistborn,
+    },]
     
     return (
         <div>
             <div id="bIRDiv">
                 Books I've Read
-                {readBooks.map((book) => {
+                {booksObj.map((book) => {
+                {/* {readBooks.map((book) => { */}
                     return (
                     <div className="booksIveRead">
                         <div className="bIRTitle">
-                            {book.volumeInfo.title}
-                            {/* {book.title} */}
+                            {/* {book.volumeInfo.title} */}
+                            {book.title}
                         </div>
                         <div className="bIRAuthor">
-                            {book.volumeInfo.authors}
+                            {book.author}
+                            {/* {book.volumeInfo.authors} */}
                         </div>
-                        {/* <div>
+                        <div>
                             <img src={book.imageSrc} alt={book.title}/>
-                        </div> */}
+                        </div>
                         <p>Rate this Book:</p>
                         <Likes />
                     </div>

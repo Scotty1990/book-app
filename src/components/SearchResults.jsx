@@ -1,10 +1,20 @@
 import React from 'react';
 import NoImg from './pics/NoImg.jpeg'
 
-const SearchResults = ({ book, addBookToLog }) => { 
+const SearchResults = ({ book, addBookToLog, addAuthorsToLog }) => { 
     
     function onClick(event) {
-        addBookToLog(book.volumeInfo.title)
+        // let bookObj = {title:}
+        addBookToLog(
+            // book.volumeInfo.title,
+            book
+           
+            // {title: book.volumeInfo.title,
+            // author: book.volumeInfo.authors}
+        )
+        // addAuthorsToLog(
+        //     book.volumeInfo.authors
+        // )
         event.preventDefault()
     }
 

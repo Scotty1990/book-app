@@ -22,9 +22,9 @@ function Nav() {
             <Link to="/musings">
                 <h3>Musings</h3>
             </Link>
-            <Link to="/booksiveread">
+            {/* <Link to="/booksiveread">
                 <h3>Books I've Read</h3>
-            </Link>
+            </Link> */}
             {/* <Link to="/booksiveread" readBooks={readBooks}>
                 <h3>Books I've Read</h3>
             </Link> */}

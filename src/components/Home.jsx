@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import SearchResults from './SearchResults'
+import BooksIveRead from './BooksIveRead';
 
 function Home() {
-    const [readBooks, setReadBooks] = useState(["Books I've read: "])
+    const [readBooks, setReadBooks] = useState([])
+    const [authors, setAuthors] = useState([])
     const [searchString, setSearchString] = useState([])
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
@@ -22,6 +24,7 @@ function Home() {
         if(res.ok)
         return res.json()})
       .then(data => {
+        console.log(data)
         setBooks(data.items)
       })
       .catch(err => console.log("something went wrong...", err))
@@ -42,29 +45,40 @@ function Home() {
     if (searchString.includes(" "))
       setSearchString(searchString.replace(" ", "+"))
     setSearchParams((state) => ({...state, search: searchString, index: startIndex * 0}))
-    setLastSearch(...lastSearch, searchString)
+    setLastSearch(searchString)
+    console.log(lastSearch)
     setSearchString('')
   }
 
   function addBookToLog(addedBook) {
-    setReadBooks(readBooks => [...readBooks, addedBook + ', ' ])
+    setReadBooks(readBooks => [...readBooks, addedBook])
   }
+
+ 
  
   function nextResults() {
     setStartIndex(index => index + 20)
-    setSearchParams((state) => ({...state, search: lastSearch, index: startIndex + 20}))
+    setSearchString(lastSearch)
+    // setSearchString(lastSearch[lastSearch.length - 2])
+    // console.log(searchString[searchString.length - 2])
+    // setSearchString(...searchString, searchString[searchString.length - 2])
+    setSearchParams((state) => ({...state, search: searchString, index: startIndex + 20}))
+    console.log(searchParams)
   }
 
   function previousResults() {
     setStartIndex(index => index - 20)
-    setSearchParams((state) => ({...state, search: lastSearch, index: startIndex - 20}))
+    setSearchParams((state) => ({...state, search: searchString, index: startIndex - 20}))
   }
 
     return (
-        <div id="homeDiv">
-          <div id="read-books">
+        <div>
+          <div>
+            <BooksIveRead readBooks={readBooks}/>
+          </div> 
+          {/* <div id="read-books">
             <p>{readBooks}</p>
-          </div>
+          </div> */}
           <div className="search-bar">
             <form onSubmit={handleSubmit}>
               <input
@@ -81,7 +95,8 @@ function Home() {
             {books.map(book => ( 
               <SearchResults 
                 book={book}
-                addBookToLog={addBookToLog} 
+                addBookToLog={addBookToLog}
+                // addAuthorsToLog={addAuthorsToLog} 
               />    
             ))}
           </div>

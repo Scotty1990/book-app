@@ -8,11 +8,6 @@
   }
 }
 
-@media screen and (min-width: 540px) {
-  .view {
-    width: 600px;
-  }  
-}
 @media screen and (min-width: 540px) and (max-width: 780px) {
   .view {
       width: 600px;
@@ -35,8 +30,8 @@
 
 #musings-form {
   margin: 5px;
-  min-width: 530px;
-  margin: 0 450px 0 450px;
+  /* min-width: 530px;
+  margin: 0 450px 0 450px; */
 }
 
 
@@ -45,13 +40,13 @@
 }
 
 .individual-musings {
-  min-width: 700px;
+  /* min-width: 700px; */
 }
 
 #musings-intro {
   font-size: 15px;
-  min-width: 530px;
-  margin: 0 425px 15px 425px;
+  /* min-width: 530px;
+  margin: 0 425px 15px 425px; */
   width: auto;
 }
 
@@ -137,9 +132,9 @@ body {
 }
 
 #bIRDiv {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(5, minmax(250px, 1fr));
-  grid-template-rows: repeat(4, minmax(250px, 1fr));
+  grid-template-rows: repeat(4, minmax(250px, 1fr)); */
 }
 
 #bIRText {

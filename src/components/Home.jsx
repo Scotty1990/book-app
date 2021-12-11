@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+// import React, { useEffect, useState } from 'react';
+import { DataContext } from './DataContext';
 import SearchResults from './SearchResults'
 import BooksIveRead from './BooksIveRead';
 
 function Home() {
-    const [readBooks, setReadBooks] = useState([])
+    // const data = useContext(DataContext)
+    const { readBooks, setReadBooks } = useContext(DataContext)
+    // const [readBooks, setReadBooks] = useState([])
     const [authors, setAuthors] = useState([])
     const [searchString, setSearchString] = useState([])
     const [startIndex, setStartIndex] = useState(0)

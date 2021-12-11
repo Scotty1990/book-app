@@ -6,7 +6,9 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "bootstrap": "^5.1.3",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.0.3",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
@@ -37,5 +39,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "In the project I created an app that will allow users to search for books they like, then log the books they have read at the top of the screen. I also included a \"musings\" section for people to leave comments about books or authors that they like or dislike, with a ratings system for people to upvote or downvote comments they like or dislike. I have a random book generator that allows you to get a random book based on a number of different genres. Finally, I have a page that will be the area where the user can display the books they've selected as having read. It includes upvote/downvote buttons as well. This page is unfinished, so for now I just have some books I've read coded into the page to show how it will look.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/scottmacleod/BookApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

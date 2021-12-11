@@ -1,10 +1,13 @@
-import React from 'react';
+// import React, { useContext } from 'react';
+import React from 'react'
 import Foundation from './pics/Foundation.jpeg'
 import Hyperion from './pics/Hyperion.jpeg'
 import Slaughterhouse5 from './pics/Slaughterhouse5.jpeg'
 import LibraryAtMountChar from './pics/LibraryAtMountChar.jpeg'
 import Mistborn from './pics/Mistborn.jpeg'
 import Likes from './Likes'
+import { DataContext } from './DataContext'
+// import DataContext from './DataContext';
 
 function BooksIveRead({ readBooks }) {
     const booksObj = [{
@@ -35,6 +38,7 @@ function BooksIveRead({ readBooks }) {
     
     return (
         <div>
+            <DataContext.Consumer>
             <div id="bIRDiv">
                 <h3 id="bIRp">Books I've Read</h3>
                 {booksObj.map((book) => {
@@ -42,7 +46,7 @@ function BooksIveRead({ readBooks }) {
                     return (
                     <div className="booksIveRead">
                         <div className="bIRTitle">
-                            {/* {book.volumeInfo.title} */}
+                            {/* {readBooks} */}
                             {book.title}
                         </div>
                         <div className="bIRAuthor">
@@ -57,6 +61,7 @@ function BooksIveRead({ readBooks }) {
                     </div>
                 )})}
             </div>
+            </DataContext.Consumer>
         </div>
         // <div>
         //     <p id="bIRText">Books I've Read:</p>

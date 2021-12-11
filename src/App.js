@@ -1,4 +1,9 @@
+// import React, { useContext } from 'react'
+import React from 'react'
 
+// import DataProvider from './components/DataProvider';
+import { DataContext } from './components/DataContext';
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import RandBookSearch from './components/RandBookSearch';
 import { Route } from 'react-router-dom';
@@ -11,32 +16,39 @@ import BooksIveRead from './components/BooksIveRead';
    this also makes the menu buttons for the subjects work */
 import 'semantic-ui-css/semantic.min.css'
 import WantToRead from './components/WantToRead';
+import { useState } from 'react';
 
-function App() {
- 
+
+
+const App = () => {
+  const [readBooks, setReadBooks] = useState([])
+  
   return (
+    // <DataProvider >
     <div>
       <header>
         <a href="/">My Book App</a>
       </header>
       <div>
         <Nav />
-        
       </div>
-      {/* <div>
-          <BooksIveRead />
-      </div> */}
       <main className="App">
-        <BooksIveRead />
-        <WantToRead />
-        <Route path="/" exact component={Home}/>
-        <Route path="/randombook" exact component={RandBookSearch}></Route>
-        <Route path="/musings" exact component={Musings}></Route>
+      <DataContext.Provider value={{ readBooks, setReadBooks }}>
+          {/* <DataContext.Consumer> */}
+            <BooksIveRead />
+            <WantToRead />
+          {/* </DataContext.Consumer> */}
+          <Route path="/" exact component={Home}/>
+          <Route path="/randombook" exact component={RandBookSearch}></Route>
+          <Route path="/musings" exact component={Musings}></Route>
+        </DataContext.Provider>
         {/* <Route path="/booksiveread" exact component={BooksIveRead}></Route> */}
         
       </main>
     </div>
+    // </DataProvider>
   );
 }
+
 
 export default App;

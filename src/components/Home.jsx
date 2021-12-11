@@ -57,8 +57,6 @@ function Home() {
   function addBookToLog(addedBook) {
     setReadBooks(readBooks => [...readBooks, addedBook])
   }
-
- 
  
   function nextResults() {
     setStartIndex(index => index + 20)

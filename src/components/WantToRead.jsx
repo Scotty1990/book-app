@@ -33,13 +33,13 @@ function WantToRead() {
                             {willRead.map(book => {
                                 return (
                                     <div key={book.id}>
-                                        <div>
+                                        <div className="wTRTitle">
                                             {book.volumeInfo.title}
                                         </div>
-                                        <div>
+                                        <div className="wTRAuthor">
                                             {book.volumeInfo.authors}
                                         </div>
-                                        <div>
+                                        <div className="wTRImg">
                                             <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
                                         </div>
                                         <p>Rate this Book:</p>

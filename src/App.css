@@ -5,16 +5,30 @@
 @media screen and (max-width: 540px) {
   .view {
       width: 400px;
+      position: absolute;
   }
 
   #wantToRead {
-    position: absolute;
-    bottom: 0px; 
+    position: relative;
+    margin: 5px;
+    /* position: absolute; */
+    /* bottom: 0px;  */
   }
 
   #bIRDiv {
-    position: absolute;
-    bottom: 80px;
+    position: sticky;
+    
+    /* position: absolute;
+    bottom: 80px; */
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
+
+  .wTRImg {
+    visibility: none;
   }
 }
 
@@ -154,8 +168,10 @@ body {
   font-size: 20px;
 }
 
+/* Want to Read */
+
 #wantToRead {
-  float: right;
+  float: left;
   margin-right: 20px;
 }
 

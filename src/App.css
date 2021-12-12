@@ -11,6 +11,11 @@
     position: absolute;
     bottom: 0px; 
   }
+
+  #bIRDiv {
+    position: absolute;
+    bottom: 80px;
+  }
 }
 
 @media screen and (min-width: 540px) and (max-width: 780px) {
@@ -125,6 +130,8 @@ body {
   /* margin: 0 300px 0 300px; */
   /* min-width: 200px; */
 }
+
+/* Books I've Read */
 
 .bIRTitle {
   font-size: large;

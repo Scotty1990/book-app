@@ -3,8 +3,11 @@ import SpeaksTheNightbird from './pics/SpeaksTheNightbird.jpeg'
 import Skyward from './pics/Skyward.jpeg'
 import ChildrenOfTime from './pics/ChildrenOfTime.jpeg'
 import Likes from './Likes'
+import { DataContext } from './DataContext';
+import BooksIveRead from './BooksIveRead';
 
 function WantToRead() {
+    const wTRid = [0,1,2]
     const wantToReadObj = [{
         title: 'Speaks the Nightbird',
         author: 'Robert McCammon',
@@ -22,25 +25,54 @@ function WantToRead() {
     }]
     return (
         <div id="wantToRead">
-            <h3>Want to Read</h3>
-            {wantToReadObj.map(book => {
-                return (
-                    <div>
-                        <div className="wTRTitle">
-                            {book.title}
-                        </div>
-                        <div className="wTRAuthor">
-                            {book.author}
-                        </div>
+            <DataContext.Consumer>
+                {( {willRead} ) => {
+                    return (
                         <div>
-                            <img src={book.imageSrc} alt={book.title} />
+                            <h3>Want to Read</h3>
+                            {willRead.map(book => {
+                                return (
+                                    <div key={book.id}>
+                                        <div>
+                                            {book.volumeInfo.title}
+                                        </div>
+                                        <div>
+                                            {book.volumeInfo.authors}
+                                        </div>
+                                        <div>
+                                            <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
+                                        </div>
+                                        <p>Rate this Book:</p>
+                                        <Likes />
+                                    </div>
+                                )
+                            })}
                         </div>
-                        <p>Rate this Book:</p>
-                        <Likes />
-                    </div>
-                )
-            })}
+                    )
+                }}
+            </DataContext.Consumer>
         </div>
+        //  <div>
+        //     <p id="bIRText">Books I've Read:</p>
+        //     <div id="bIRDiv">
+        //         {wantToReadObj.map((book, i) => {
+        //             return (
+        //                 <div className="booksIveRead" key={wTRid[i]}>
+        //                 <div className="bIRTitle">
+        //                     {book.title}
+        //                 </div>
+        //                 <div className="bIRAuthor">
+        //                     {book.author}
+        //                 </div>
+        //                 <div>
+        //                     <img src={book.imageSrc} alt={book.title}/>
+        //                 </div>
+        //                 <p>Rate this Book:</p>
+        //                 <Likes />
+        //             </div>
+        //         )})}
+        //     </div>
+        // </div>
     );
 }
 

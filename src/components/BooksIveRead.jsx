@@ -40,15 +40,13 @@ function BooksIveRead() {
     return (
         <div>
             <DataContext.Consumer>
-            {( {readBooks} ) => {
-                return (
-                <div id="bIRDiv">
-                    <h3 id="bIRp">Books I've Read</h3>
-                    {/* {( readBooks ) => { */}
-                        {/* return ( */}
+                {( {readBooks} ) => {
+                    return (
+                        <div id="bIRDiv">
+                            <h3 id="bIRp">Books I've Read</h3>
                             {readBooks.map(book => {
                                 return (
-                                    <div>
+                                    <div key={book.id}>
                                         <div className="bIRTitle">
                                             {book.volumeInfo.title}
                                         </div>
@@ -56,16 +54,15 @@ function BooksIveRead() {
                                             {book.volumeInfo.authors}
                                         </div>
                                         <div>
+                                            <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
                                         </div>
                                         <p>Rate this Book:</p>
                                         <Likes />
                                     </div>
                                 )
                             })}
-                        {/* ) */}
-                    {/* }} */}
-                </div>
-                )
+                        </div>
+                    )
                 }}
             </DataContext.Consumer>
         </div>

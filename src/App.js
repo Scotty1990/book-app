@@ -22,9 +22,8 @@ import { useState } from 'react';
 
 const App = () => {
   const [readBooks, setReadBooks] = useState([])
-  
+  const [willRead, setWillRead] = useState([])
   return (
-    // <DataProvider >
     <div>
       <header>
         <a href="/">My Book App</a>
@@ -33,7 +32,7 @@ const App = () => {
         <Nav />
       </div>
       <main className="App">
-      <DataContext.Provider value={{ readBooks, setReadBooks }}>
+        <DataContext.Provider value={{ readBooks, setReadBooks, willRead, setWillRead }}>
           {/* <DataContext.Consumer> */}
             <BooksIveRead />
             <WantToRead />
@@ -46,7 +45,6 @@ const App = () => {
         
       </main>
     </div>
-    // </DataProvider>
   );
 }
 

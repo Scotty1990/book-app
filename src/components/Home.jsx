@@ -1,14 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-// import React, { useEffect, useState } from 'react';
 import { DataContext } from './DataContext';
 import SearchResults from './SearchResults'
-import BooksIveRead from './BooksIveRead';
 
 function Home() {
-    // const data = useContext(DataContext)
-    const { readBooks, setReadBooks } = useContext(DataContext)
-    // const [readBooks, setReadBooks] = useState([])
-    const [authors, setAuthors] = useState([])
+    const { readBooks, setReadBooks, willRead, setWillRead} = useContext(DataContext)
+    // const [ willRead, setWillRead ] = useState([])
     const [searchString, setSearchString] = useState([])
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
@@ -54,8 +50,14 @@ function Home() {
     setSearchString('')
   }
 
-  function addBookToLog(addedBook) {
-    setReadBooks(readBooks => [...readBooks, addedBook])
+  function addReadBookToLog(addReadBook) {
+    setReadBooks(readBooks => [...readBooks, addReadBook])
+    console.log(readBooks)
+  }
+
+  function addWantToReadLog(addWantToRead) {
+    setWillRead(willRead => [...willRead, addWantToRead])
+    console.log(willRead)
   }
  
   function nextResults() {
@@ -97,8 +99,8 @@ function Home() {
             {books.map(book => ( 
               <SearchResults 
                 book={book}
-                addBookToLog={addBookToLog}
-                // addAuthorsToLog={addAuthorsToLog} 
+                addReadBookToLog={addReadBookToLog}
+                addWantToReadLog={addWantToReadLog} 
               />    
             ))}
           </div>

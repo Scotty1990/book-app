@@ -1,25 +1,21 @@
 import React from 'react';
 import NoImg from './pics/NoImg.jpeg'
 
-const SearchResults = ({ book, addBookToLog, addAuthorsToLog }) => { 
+const SearchResults = ({ book, addReadBookToLog, addWantToReadLog }) => { 
     
-    function onClick(event) {
-        // let bookObj = {title:}
-        addBookToLog(
-            // book.volumeInfo.title,
-            book
-           
-            // {title: book.volumeInfo.title,
-            // author: book.volumeInfo.authors}
-        )
-        // addAuthorsToLog(
-        //     book.volumeInfo.authors
-        // )
+    function readBook(event) {
+        addReadBookToLog(book)
+        event.preventDefault()
+    }
+
+    function wantToRead(event) {
+        addWantToReadLog(book)
+        // console.log(book)
         event.preventDefault()
     }
 
     return (
-        <div>
+        <div key={book.id}>
         {/* Patricio showed me this */}
             <div>
                 <img src={Object.keys(book.volumeInfo).includes(`imageLinks`) ? book.volumeInfo.imageLinks.thumbnail : NoImg} alt={book.volumeInfo.title}/>
@@ -31,7 +27,8 @@ const SearchResults = ({ book, addBookToLog, addAuthorsToLog }) => {
                 {Object.keys(book.volumeInfo).includes(`averageRating`) ? `Average Rating: ${book.volumeInfo.averageRating}/5` : ''}
             </div>
             <div>
-                <button className="logButton" onClick={onClick}>I've read this book</button>
+                <button className="logButton" onClick={readBook}>I've read this book</button>
+                <button className="wTRButton" onClick={wantToRead}>I want to read this book</button>
             </div>
         </div>
     );

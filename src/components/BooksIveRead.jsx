@@ -38,29 +38,31 @@ function BooksIveRead() {
     // },]
     
     return (
-        <div>
+        <div id="booksIveReadTopDiv">
             <DataContext.Consumer>
                 {( {readBooks} ) => {
                     return (
-                        <div id="bIRDiv">
+                        <div id="bIRWithTitle"> 
                             <h3 id="bIRp">Books I've Read</h3>
-                            {readBooks.map(book => {
-                                return (
-                                    <div key={book.id}>
-                                        <div className="bIRTitle">
-                                            {book.volumeInfo.title}
-                                        </div>
-                                        <div className="bIRAuthor">
-                                            {book.volumeInfo.authors}
-                                        </div>
-                                        <div>
-                                            <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
-                                        </div>
-                                        <p>Rate this Book:</p>
-                                        <Likes />
-                                    </div>
-                                )
-                            })}
+                            <div id="bIRDiv">
+                                {readBooks.map(book => {
+                                    return (
+                                        <div key={book.id}>
+                                            <div className="bIRTitle">
+                                                {book.volumeInfo.title}
+                                            </div>
+                                            <div className="bIRAuthor">
+                                                {book.volumeInfo.authors}
+                                            </div>
+                                            <div>
+                                                <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
+                                            </div>
+                                            <p>Rate this Book:</p>
+                                            <Likes />
+                                        </div> 
+                                    )
+                                })}
+                            </div>
                         </div>
                     )
                 }}

@@ -97,8 +97,8 @@ function Home() {
               />    
             ))}
           </div>
-          <button onClick={previousResults} display={(startIndex === 0) ? "hidden" : "block"}>Previous</button>
-          <button onClick={nextResults}>Next</button>
+          <button className="prevNextButtons" onClick={previousResults} display={(startIndex === 0) ? "hidden" : "block"}>Previous</button>
+          <button className="prevNextButtons" onClick={nextResults}>Next</button>
         </div>
     );
 }

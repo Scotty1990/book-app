@@ -24,29 +24,31 @@ function WantToRead() {
         imageSrc: ChildrenOfTime,
     }]
     return (
-        <div id="wantToRead">
+        <div>
             <DataContext.Consumer>
                 {( {willRead} ) => {
                     return (
                         <div>
-                            <h3>Want to Read</h3>
-                            {willRead.map(book => {
-                                return (
-                                    <div key={book.id}>
-                                        <div className="wTRTitle">
-                                            {book.volumeInfo.title}
+                            <h3 id="wTRHeader">Want to Read</h3>
+                            <div id="wantToRead">
+                                {willRead.map(book => {
+                                    return (
+                                        <div key={book.id}>
+                                            <div className="wTRTitle">
+                                                {book.volumeInfo.title}
+                                            </div>
+                                            <div className="wTRAuthor">
+                                                {book.volumeInfo.authors}
+                                            </div>
+                                            <div className="wTRImg">
+                                                <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
+                                            </div>
+                                            <p>Rate this Book:</p>
+                                            <Likes />
                                         </div>
-                                        <div className="wTRAuthor">
-                                            {book.volumeInfo.authors}
-                                        </div>
-                                        <div className="wTRImg">
-                                            <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
-                                        </div>
-                                        <p>Rate this Book:</p>
-                                        <Likes />
-                                    </div>
-                                )
-                            })}
+                                    )
+                                })}
+                            </div>
                         </div>
                     )
                 }}

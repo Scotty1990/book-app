@@ -33,10 +33,8 @@ const App = () => {
       </div>
       <main className="App">
         <DataContext.Provider value={{ readBooks, setReadBooks, willRead, setWillRead }}>
-          {/* <DataContext.Consumer> */}
-            <BooksIveRead />
-            <WantToRead />
-          {/* </DataContext.Consumer> */}
+              <BooksIveRead />
+              <WantToRead />
           <Route path="/" exact component={Home}/>
           <Route path="/randombook" exact component={RandBookSearch}></Route>
           <Route path="/musings" exact component={Musings}></Route>

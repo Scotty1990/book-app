@@ -23,20 +23,22 @@ function Musings() {
     }
    
     return (
-        <div>
+        <div id="musingsDiv">
             <p id="musings-intro">Welcome to the Musings section! Have something you liked about an author or a book? Jot it down! Something you dislike? Let the world know your thoughts!</p>
             <form id="musings-form" onSubmit={handleSubmit}>
                 <textarea cols="50" rows="10" onChange={handleChange} value={text}></textarea>        
                 <button onClick={handleChange}>submit</button>  
             </form>
-            {musings.map((muse) => {
-               return (
-                <div className="musings-container">
-                    <p className="individual-musings">{muse}</p>
-                    <Likes />
-                </div>
-               )
-            })}
+            <div id="musingsMap">
+                {musings.map((muse) => {
+                    return (
+                        <div className="musings-container">
+                            <p className="individual-musings">{muse}</p>
+                            <Likes />
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     );
 }

@@ -3,8 +3,8 @@ import { DataContext } from './DataContext';
 import SearchResults from './SearchResults'
 
 function Home() {
+    // changed it to "willRead" because I was having issues with .map. Google said name might be a problem
     const { readBooks, setReadBooks, willRead, setWillRead} = useContext(DataContext)
-    // const [ willRead, setWillRead ] = useState([])
     const [searchString, setSearchString] = useState([])
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
@@ -57,7 +57,6 @@ function Home() {
 
   function addWantToReadLog(addWantToRead) {
     setWillRead(willRead => [...willRead, addWantToRead])
-    console.log(willRead)
   }
  
   function nextResults() {
@@ -77,12 +76,6 @@ function Home() {
 
     return (
         <div id="homeDiv">
-          <div>
-            {/* <BooksIveRead readBooks={readBooks}/> */}
-          </div> 
-          {/* <div id="read-books">
-            <p>{readBooks}</p>
-          </div> */}
           <div className="search-bar">
             <form onSubmit={handleSubmit}>
               <input

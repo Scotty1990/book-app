@@ -6,6 +6,11 @@
   .view {
       width: 400px;
   }
+
+  #wantToRead {
+    position: absolute;
+    bottom: 0px; 
+  }
 }
 
 @media screen and (min-width: 540px) and (max-width: 780px) {

@@ -9,7 +9,7 @@ import Likes from './Likes'
 import { DataContext } from './DataContext'
 // import DataContext from './DataContext';
 
-function BooksIveRead() {
+function BooksIveRead(props) {
     // const [readBooks, setReadBooks] = useState(["A Book"])
     // const booksObj = [{
     //     title: 'Foundation',

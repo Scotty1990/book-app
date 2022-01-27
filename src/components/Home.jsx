@@ -4,7 +4,7 @@ import SearchResults from './SearchResults'
 
 function Home(props) {
     // changed it to "willRead" because I was having issues with .map. Google said name might be a problem
-    // const { readBooks, setReadBooks, willRead, setWillRead} = useContext(DataContext)
+    const { readBooks, setReadBooks, willRead, setWillRead} = useContext(DataContext)
     const [searchString, setSearchString] = useState([])
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
@@ -50,12 +50,12 @@ function Home(props) {
   }
 
   function addReadBookToLog(addReadBook) {
-    props.setReadBooks(readBooks => [...readBooks, addReadBook])
-    console.log(props.readBooks)
+    setReadBooks(readBooks => [...readBooks, addReadBook])
+    console.log(readBooks)
   }
 
   function addWantToReadLog(addWantToRead) {
-    props.setWillRead(willRead => [...willRead, addWantToRead])
+    setWillRead(willRead => [...willRead, addWantToRead])
   }
  
   function nextResults() {

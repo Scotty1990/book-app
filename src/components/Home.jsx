@@ -9,7 +9,6 @@ function Home(props) {
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
     const [searchParams, setSearchParams] = useState({search: '', index: 0})
-    const [lastSearch, setLastSearch] = useState([]) 
     
     const searchOptions = {
       key: process.env.REACT_APP_BOOK_KEY,
@@ -45,8 +44,6 @@ function Home(props) {
     if (searchString.includes(" "))
       setSearchString(searchString.replace(" ", "+"))
     setSearchParams((state) => ({...state, search: searchString, index: startIndex * 0}))
-    setLastSearch(searchString)
-    setSearchString('')
   }
 
   function addReadBookToLog(addReadBook) {
@@ -59,14 +56,8 @@ function Home(props) {
   }
  
   function nextResults() {
-    console.log(lastSearch)
     setStartIndex(index => index + 20)
-    setSearchString(lastSearch)
-    // setSearchString(lastSearch[lastSearch.length - 2])
-    // console.log(searchString[searchString.length - 2])
-    // setSearchString(...searchString, searchString[searchString.length - 2])
     setSearchParams((state) => ({...state, search: searchString, index: startIndex + 20}))
-    console.log(searchParams)
   }
 
   function previousResults() {
@@ -82,7 +73,6 @@ function Home(props) {
                 placeholder="Search"
                 type="text"
                 onChange={handleChange}
-                value={searchString}
               />
               <button type="submit">Search</button>
             </form>

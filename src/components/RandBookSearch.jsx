@@ -20,6 +20,9 @@ function RandBookSearch() {
         .then(res => res.json())
         .then(data => {
             setBookName(data.items[0].volumeInfo.title)
+            console.log(data.items[0].volumeInfo.description)
+            console.log(data.items[0].volumeInfo.imageLinks.thumbnail)
+            console.log(data.items[0].volumeInfo.authors)
             setBookDescription(data.items[0].volumeInfo.description)
             try{setBookImage(data.items[0].volumeInfo.imageLinks.thumbnail)}
             catch{setBookImage(NoImg)}

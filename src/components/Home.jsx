@@ -2,9 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import { DataContext } from './DataContext';
 import SearchResults from './SearchResults'
 
-function Home() {
+function Home(props) {
     // changed it to "willRead" because I was having issues with .map. Google said name might be a problem
-    const { readBooks, setReadBooks, willRead, setWillRead} = useContext(DataContext)
+    // const { readBooks, setReadBooks, willRead, setWillRead} = useContext(DataContext)
     const [searchString, setSearchString] = useState([])
     const [startIndex, setStartIndex] = useState(0)
     const [books, setBooks] = useState([])
@@ -46,20 +46,20 @@ function Home() {
       setSearchString(searchString.replace(" ", "+"))
     setSearchParams((state) => ({...state, search: searchString, index: startIndex * 0}))
     setLastSearch(searchString)
-    console.log(lastSearch)
     setSearchString('')
   }
 
   function addReadBookToLog(addReadBook) {
-    setReadBooks(readBooks => [...readBooks, addReadBook])
-    console.log(readBooks)
+    props.setReadBooks(readBooks => [...readBooks, addReadBook])
+    console.log(props.readBooks)
   }
 
   function addWantToReadLog(addWantToRead) {
-    setWillRead(willRead => [...willRead, addWantToRead])
+    props.setWillRead(willRead => [...willRead, addWantToRead])
   }
  
   function nextResults() {
+    console.log(lastSearch)
     setStartIndex(index => index + 20)
     setSearchString(lastSearch)
     // setSearchString(lastSearch[lastSearch.length - 2])

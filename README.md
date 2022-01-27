@@ -4,7 +4,7 @@ In the project I created an app that will allow users to search for books they l
 ### Website
 https://bookappscottmacleod.herokuapp.com/
 
-### Technologies used
+### Technologies Used
 - HTML
 - Javascript
 - CSS

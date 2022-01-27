@@ -32,15 +32,27 @@ const App = () => {
         <Nav />
       </div>
       <main className="App">
-        <DataContext.Provider value={{ readBooks, setReadBooks, willRead, setWillRead }}>
-              <BooksIveRead />
-              <WantToRead />
-          <Route path="/" exact component={Home}/>
+        {/* <DataContext.Provider value={{ readBooks, setReadBooks, willRead, setWillRead }}> */}
+              {/* <BooksIveRead />
+              <WantToRead /> */}
+          {/* <Route path="/" exact component={Home}/>
           <Route path="/randombook" exact component={RandBookSearch}></Route>
-          <Route path="/musings" exact component={Musings}></Route>
-        </DataContext.Provider>
+          <Route path="/musings" exact component={Musings}></Route> */}
+        {/* </DataContext.Provider> */}
         {/* <Route path="/booksiveread" exact component={BooksIveRead}></Route> */}
-        
+        <Route path="/" exact render={() => (
+          <Home
+            readBooks={readBooks}
+            setReadBooks={setReadBooks}
+            willRead={willRead}
+            setWillRead={setWillRead}
+          />
+        )} 
+        ></Route>
+        <Route path="/randombook" exact component={RandBookSearch}></Route>
+        <Route path="/musings" exact component={Musings}></Route>
+        <Route path="/booksiveread" exact component={BooksIveRead}></Route>
+        <Route path="/wanttoread" exact component={WantToRead}></Route>
       </main>
     </div>
   );

@@ -5,6 +5,11 @@ const SearchResults = ({ book, addReadBookToLog, addWantToReadLog }) => {
     
     function readBook(event) {
         addReadBookToLog(book)
+        console.log("title: " + book.volumeInfo.title)
+        console.log("image url: " + book.volumeInfo.imageLinks.thumbnail)
+        console.log("authors: " + book.volumeInfo.authors)
+        console.log("published date: " + book.volumeInfo.publishedDate)
+        console.log(book.volumeInfo.description)
         event.preventDefault()
     }
 

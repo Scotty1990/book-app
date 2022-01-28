@@ -18,7 +18,7 @@ https://bookappscottmacleod.herokuapp.com/
 
 ### Enjoy
 ![img](./src/components/pics/home-screenshot.png)
-![img](./src/components/pics/rbg-screenshot.png)
-![img](./src/components/pics/musings-screenshot.png)
+![img](./src/components/pics/rbg-generator.png)
+![img](./src/components/pics/musings-section.png)
 ![img](./src/components/pics/BIR-section.png)
 ![img](./src/components/pics/WTR-section.png)

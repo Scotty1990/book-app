@@ -17,7 +17,8 @@ https://bookappscottmacleod.herokuapp.com/
 - Adding to the arrays using ```setState()```
 
 ### Enjoy
-![img](./src/components/pics/Home.png)
-![img](./src/components/pics/RandomBookGeneratorSample.png)
-![img](./src/components/pics/MusingsSection.png)
-![img](./src/components/pics/BooksIveReadSection.png)
+![img](./src/components/pics/home-screenshot.png)
+![img](./src/components/pics/rbg-screenshot.png)
+![img](./src/components/pics/musings-screenshot.png)
+![img](./src/components/pics/BIR-section.png)
+![img](./src/components/pics/WTR-section.png)

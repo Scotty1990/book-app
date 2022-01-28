@@ -19,10 +19,6 @@
     display: grid;
     grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
-
-  .wTRImg {
-    visibility: none;
-  }
 }
 
 @media screen and (min-width: 540px) and (max-width: 780px) {

@@ -7,7 +7,6 @@ import { DataContext } from './DataContext';
 import BooksIveRead from './BooksIveRead';
 
 function WantToRead() {
-    // comment so I can see if that works
     const wTRid = [0,1,2]
     const wantToReadObj = [{
         title: 'Speaks the Nightbird',

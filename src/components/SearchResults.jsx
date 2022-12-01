@@ -2,7 +2,6 @@ import React from 'react';
 import NoImg from './pics/NoImg.jpeg'
 
 const SearchResults = ({ book, addReadBookToLog, addWantToReadLog }) => { 
-    // comment so I can see if that works
     function readBook(event) {
         addReadBookToLog(book)
         console.log("title: " + book.volumeInfo.title)

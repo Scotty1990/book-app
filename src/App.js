@@ -30,6 +30,7 @@ const App = () => {
       </header>
       <div>
         <Nav />
+        {/* comment so I can see if that works */}
       </div>
       <main className="App">
         <DataContext.Provider value={{ readBooks, setReadBooks, willRead, setWillRead }}>

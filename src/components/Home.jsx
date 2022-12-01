@@ -3,6 +3,7 @@ import { DataContext } from './DataContext';
 import SearchResults from './SearchResults'
 
 function Home(props) {
+  // comment so I can see if that works
     // changed it to "willRead" because I was having issues with .map. Google said name might be a problem
     const { readBooks, setReadBooks, willRead, setWillRead} = useContext(DataContext)
     const [searchString, setSearchString] = useState([])

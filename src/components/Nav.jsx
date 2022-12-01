@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 
 function Nav() {
+    // comment so I can see if that works
     return (
         <nav id="navBar">
             <Link to="/">

@@ -2,7 +2,6 @@
 import { Menu } from 'semantic-ui-react'
 
 function DropdownSubjects({fetchBookScience, fetchBookFiction, fetchBookFantasy, fetchBookScienceFiction, fetchBookHistoricalFiction, fetchBookMilitaryFiction, fetchBookPoetry, fetchBookMath, fetchBookHumor, fetchBookHorror, fetchBookMystery}) {
-  // comment so I can see if that works
   function onClickFetchBookScience() {
     fetchBookScience()
   }

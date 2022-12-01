@@ -3,7 +3,6 @@ import Home from './Home';
 import BooksIveRead from './BooksIveRead';
 
 function HomeAndBIRContainer() {
-    // comment so I can see if that works
     const [readBooks, setReadBooks] = useState(["Books I've read: "])
     function addBookToLog(addedBook) {
         setReadBooks(readBooks => [...readBooks, addedBook + ', ' ])

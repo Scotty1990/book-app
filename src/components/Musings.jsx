@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Likes from './Likes';
 
 function Musings() {
-    // comment so I can see if that works
     const [input, setInput] = useState([])
     const [musings, setMusings] = useState([])
     const [text, setText] = useState()
